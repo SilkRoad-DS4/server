@@ -7,16 +7,19 @@
 	</head>
 
 	<body>
-		Hello World!
 		<script type="text/javascript" src="lib/local/Log.js"></script>
 		<script type="text/javascript" src="lib/local/modules/mergesort.js"></script>
+		<script type="text/javascript" src="lib/local/modules/mixin.js"></script>
 		<script type="text/javascript" src="lib/local/RenderableObject.js"></script>
 		<script type="text/javascript" src="lib/local/PVRenderer.js"></script>
+		<script type="text/javascript" src="lib/local/GUI/InteractiveObject.js"></script>
+		<script type="text/javascript" src="lib/local/GUI/Button.js"></script>
+		
 		<script type="text/javascript">
-			var obj = new RenderableObject();
+			var obj = new Button();
 			var obj2 = new RenderableObject();
 			var obj3 = new RenderableObject();
-			var values = { "x":100, "y":100, "z":100, "height":48, "width":64, "color":"#fff"};
+			var values = { "x":100, "y":200, "z":103, "height":48, "width":64, "color":"#fff"};
 			obj.set_values(values);
 			values = {"x":132, "y":100, "z":102, "height":48, "width":64, "color":"#f00", "visible":false};
 			obj2.set_values(values);
@@ -30,6 +33,7 @@
 			Renderer.add_to_queue(obj3);
 			Renderer.render();
 			
+			obj.isMouseOver(0, 0);
 		</script>
 	</body>
 </html>

@@ -1,4 +1,7 @@
 function RenderableObject(){
+	//Javascript work around, silly multiple inheritence rules
+	this.RenderableObject = true;
+	
 	//Position
 	this.x = 0;
 	this.y = 0;

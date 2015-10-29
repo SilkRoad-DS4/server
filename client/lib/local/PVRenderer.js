@@ -52,7 +52,7 @@ PVRenderer.prototype.draw = function(){
 	//Loops through render queue
 	this.render_queue.forEach(function(elem){
 		//Checks if the object is renderable
-		if(elem instanceof RenderableObject){
+		if(typeof(elem.RenderableObject) !== "undefined"){
 			//Gets the type of object
 			if(elem.visible != false){
 				var type = elem.get_type();
