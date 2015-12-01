@@ -1,8 +1,12 @@
 var log = (function(){
 	var errors = {
-		0:"Undefined error",
+		0:"Unknown error occured",
 		101:"Object failed to render",
-		102:"Object not RenderableObject"
+		102:"Object not RenderableObject",
+		201:"Loading aborted",
+		202:"Network error",
+		203:"Sound failed to decode",
+		204:"Audio format not supported"
 	};
 	var error_help_text = "";
 	return{

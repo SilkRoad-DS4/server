@@ -27,7 +27,6 @@ PVRenderer.prototype.empty_queue = function(){
 //Sorts the render queue using merge sort on the z value
 PVRenderer.prototype.sort_queue = function(){
 	TopDownMergeSort(this.render_queue);
-	console.log(this.render_queue);
 }
 
 //Clears the buffer canvas to black
@@ -58,7 +57,8 @@ PVRenderer.prototype.draw = function(){
 				var type = elem.get_type();
 				switch(type){
 					case "image":
-						
+						var temp_image = elem.get_image();
+						self.b_c_context.drawImage(temp_image, elem.x, elem.y, elem.width, elem.height);
 						break;
 					case "color":
 						self.b_c_context.fillStyle = elem.color;

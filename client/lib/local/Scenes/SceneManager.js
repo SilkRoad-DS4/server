@@ -1,8 +1,14 @@
-function SceneManager(){
+function SceneManager(renderer){
 	this.active_scene;
 	this.scene_list = new Array();
+	this.renderer = renderer;
 	
-	
+}
+
+SceneManager.prototype.initialize = function(){
+	this.add_scene(new TestScene(0, this.renderer));
+	this.active_scene = this.scene_list[0];
+	this.active_scene.initialize();
 }
 
 SceneManager.prototype.add_scene = function(scene){
@@ -21,5 +27,10 @@ SceneManager.prototype.update = function(){
 
 SceneManager.prototype.goto_scene = function(id){
 	
+	
+}
+
+SceneManager.prototype.mouse_event = function(e){
+	this.active_scene.mouse_event(e);
 	
 }
