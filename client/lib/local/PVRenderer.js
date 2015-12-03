@@ -56,6 +56,41 @@ PVRenderer.prototype.draw = function(){
 			if(elem.visible != false){
 				var type = elem.get_type();
 				switch(type){
+					case "text":
+						var text_object = elem.text;
+						
+						//Get them settings set
+						var text = typeof text_object["text"] !== "undefined" ? text_object["text"] : "";
+						var size = typeof text_object["size"] !== "undefined" ? text_object["size"] : 12;
+						var font = typeof text_object["font"] !== "undefined" ? text_object["font"] : "Arial";
+						var align = typeof text_object["text_align"] !== "undefined" ? text_object["text_align"] : "left";
+						
+						self.b_c_context.font = "" + size + "px " + font;
+						self.b_c_context.fillStyle  = elem.color;
+						self.b_c_context.textAlign = align;
+						self.b_c_context.textBaseline = "top";
+						
+						//Word wrap
+						var words = text.split(" ");
+						var line = "";
+						var height = size + Math.floor(size / 2);
+						var tempY = elem.y;
+						for(var i in words){
+							var testLine = line + words[i] + " ";
+							var metrics = self.b_c_context.measureText(testLine);
+							var testWidth = metrics.width;
+							if (testWidth > elem.width && i > 0){
+								self.b_c_context.fillText(line, elem.x, tempY, elem.width, elem.height);
+								line = words[i] + " ";
+								tempY += height;
+							}else{
+								line = testLine;
+							}
+						}
+						self.b_c_context.fillText(line, elem.x, tempY, elem.width, elem.height);
+						//End word wrap
+						
+						break;
 					case "image":
 						var temp_image = elem.get_image();
 						self.b_c_context.drawImage(temp_image, elem.x, elem.y, elem.width, elem.height);

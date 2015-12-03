@@ -21,7 +21,7 @@ function RenderableObject(){
 	this.image = new Array();
 	this.image_src = new Array();
 	this.image_state = "default";
-	
+	this.text;
 }
 
 //Initializes the object
@@ -36,11 +36,14 @@ RenderableObject.prototype.renderable_initialize = function(){
 	for (elem of this.image_src){
 		this.load_image(elem["key"], elem["value"]);
 	}
+	
 }
 	
 //Gets the type of the object for rendering
 RenderableObject.prototype.get_type = function(){
-	
+	if(typeof(this.text) !== "undefined"){
+		return "text";
+	}
 	if(typeof(this.image["default"]) !== "undefined"){
 		return "image";
 	}

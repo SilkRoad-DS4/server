@@ -11,6 +11,9 @@ function TestButton(){
 	this.width = 64;
 	this.height = 64;
 
+	//Text
+	this.text = {"text":"Hello there.","size":12,"font":"arial","text_align":"right"};
+	
 	//Images
 	this.image_src.push({"key":"default","value":"buttons/test_button.png"});
 	this.image_src.push({"key":"onMouseEnter","value":"buttons/testButtonOver.png"});

@@ -11,6 +11,13 @@ function TestButton(){
 	this.width = 64;
 	this.height = 64;
 
+	//Text
+	this.text = {
+	"text":"Hello. My name is Inigo Montoya. You killed my father. Prepare to die.",
+	"size":12,
+	"font":"arial",
+	"text_align":"right"};
+	
 	//Images
 	this.image_src.push({"key":"default","value":"buttons/testButton.png"});
 	this.image_src.push({"key":"onMouseEnter","value":"buttons/testButtonOver.png"});
