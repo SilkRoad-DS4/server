@@ -20,13 +20,9 @@ function City(base_gold, commodity, modifiers){
 		}
 	}	
 	
-	this.base_modifier =  ? modifiers : {
-		
-	
-	};
-	this.price_modifier = typeof modifiers !== "undefined" ? modifiers : {
-		
-	
+	if(typeof modifiers !== "undefined"){
+		this.base_modifier = modifiers;
+		this.price_modifier = modifiers;
 	};
 }
 
