@@ -10,13 +10,6 @@ function TestButton(){
 	
 	this.width = 64;
 	this.height = 64;
-
-	//Text
-	this.text = {
-	"text":"Hello. My name is Inigo Montoya. You killed my father. Prepare to die.",
-	"size":12,
-	"font":"arial",
-	"text_align":"right"};
 	
 	//Images
 	this.image_src.push({"key":"default","value":"buttons/testButton.png"});
@@ -34,6 +27,7 @@ TestButton.prototype.constructor = TestButton;
 
 TestButton.prototype.onClick = function(){
 	//console.log("" + this.name + ": onClick triggered");
+	this.parent.parent.goto_scene("testscene");
 }
 
 TestButton.prototype.onMouseEnter = function(){
@@ -71,8 +65,6 @@ function TestMusic(){
 
 	//Music
 	this.sound_src.push({"key":"ambient","value":"testScene/music.mp3","loop":true,"volume":0.1});
-	
-	console.log("derp");
 }
 TestMusic.prototype = new InteractiveObject();
 TestMusic.prototype.constructor = TestMusic;

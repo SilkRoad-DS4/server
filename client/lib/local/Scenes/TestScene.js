@@ -1,5 +1,5 @@
-function TestScene(id, renderer){
-	Scene.call(this, id, renderer);
+function TestScene(id, renderer, parent){
+	Scene.call(this, id, renderer, parent);
 	
 	this.add_object(new TestBackground());
 	this.add_object(new TestButton());

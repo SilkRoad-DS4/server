@@ -6,8 +6,8 @@ function SceneManager(renderer){
 }
 
 SceneManager.prototype.initialize = function(){
-	this.add_scene(new TestScene(0, this.renderer));
-	this.active_scene = this.scene_list[0];
+	this.add_scene({"name":"testscene", "scene":new TestScene(0, this.renderer, this)});
+	this.active_scene = this.scene_list[0]["scene"];
 	this.active_scene.initialize();
 }
 
@@ -17,16 +17,26 @@ SceneManager.prototype.add_scene = function(scene){
 
 SceneManager.prototype.update = function(){
 	this.active_scene.update();
-	var finished = this.active_scene.get_finished();
-	if(finished){
-		var next_scene = this.active_scene.get_next_scene();
-		this.goto_scene(next_scene);
-	}
-	
+
 }
 
-SceneManager.prototype.goto_scene = function(id){
+SceneManager.prototype.goto_scene = function(scene_name){
+	scene_name = scene_name.toLowerCase();
+	for(var i = 0; i < this.scene_list.length; i++){
+		var name = this.scene_list[i]["name"].toLowerCase();
+		
+		if(name == scene_name){
+			//Stop Scene
+			this.active_scene.stop();
+			
+			//Get next scene
+			this.active_scene = this.scene_list[i]["scene"];
+			
+			//Initialize scene
+			this.active_scene.initialize();
+		}
 	
+	}
 	
 }
 
