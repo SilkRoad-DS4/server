@@ -2,7 +2,6 @@ var TheActualGame = (function(){
 	
 	var starting_year = -130;
 	var year = -130;
-	var events = 
 	var commodities = {
 		"jade": new Commodity("jade",60),
 		"pottery": new Commodity("pottery",30),
@@ -226,6 +225,8 @@ var TheActualGame = (function(){
 		//Change the player location
 		player.location = city_name.toLowerCase();
 		
+		update_year();
+		
 		return true;
 	}
 	
@@ -322,9 +323,9 @@ var TheActualGame = (function(){
 		var tempYear = year;
 		var yearString = "" + Math.abs(tempYear);
 		if(year < 0){
-			yearString += "BC";
+			yearString += " BC";
 		}else{
-			yearString += "AD";
+			yearString += " AD";
 		}
 		return yearString;
 	}
