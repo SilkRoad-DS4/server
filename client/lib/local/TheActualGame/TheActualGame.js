@@ -4,145 +4,145 @@ var TheActualGame = (function(){
 	var year = -130;
 	var events = 
 	var commodities = {
-		"jade": new Commodity("jade",500),
-		"pottery": new Commodity("pottery",500),
-		"honey": new Commodity("honey",500),
-		"gunpowder": new Commodity("gunpowder",500),
-		"cattle": new Commodity("cattle",500),
-		"horses": new Commodity("horses",500),
-		"leather": new Commodity("leather",500),
-		"fur": new Commodity("fur",500)
+		"jade": new Commodity("jade",60),
+		"pottery": new Commodity("pottery",30),
+		"honey": new Commodity("honey",20),
+		"gunpowder": new Commodity("gunpowder",70),
+		"cattle": new Commodity("cattle",50),
+		"horses": new Commodity("horses",40),
+		"leather": new Commodity("leather",50),
+		"fur": new Commodity("fur",30)
 	};
 	var cities = {
 		"aden": new City(
 			200,
 			commodities["horses"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.8,
+				"pottery":1.2,
+				"honey":1.3,
+				"gunpowder":1.4,
+				"cattle":1.0,
+				"horses":0.5,
+				"leather":1.0,
+				"fur":1.5
 			}),
 		"chittagong": new City(
 			200,
 			commodities["pottery"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1,
+				"pottery":0.5,
+				"honey":1.2,
+				"gunpowder":1.0,
+				"cattle":1.2,
+				"horses":1.1,
+				"leather":1.3,
+				"fur":1.6
 			}),
 		"colombo": new City(
 			200,
 			commodities["gunpowder"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.3,
+				"pottery":1,
+				"honey":0.75,
+				"gunpowder":0.5,
+				"cattle":1.0,
+				"horses":1.2,
+				"leather":1.3,
+				"fur":1.8
 			}),
 		"constantinople": new City(
 			200,
 			commodities["pottery"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.7,
+				"pottery":1.5,
+				"honey":1.5,
+				"gunpowder":1.0,
+				"cattle":1.1,
+				"horses":1.2,
+				"leather":1.3,
+				"fur":1.3
 			}),
 		"debal": new City(
 			200,
 			commodities["cattle"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.0,
+				"pottery":1.5,
+				"honey":0.75,
+				"gunpowder":1.2,
+				"cattle":0.5,
+				"horses":1.1,
+				"leather":1.3,
+				"fur":0.75
 			}),
 		"hanoi": new City(
 			200,
 			commodities["jade"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":0.5,
+				"pottery":0.9,
+				"honey":1.1,
+				"gunpowder":1.0,
+				"cattle":1.2,
+				"horses":1.1,
+				"leather":1.3,
+				"fur":1.8
 			}),
 		"madras": new City(
 			200,
 			commodities["honey"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.2,
+				"pottery":1,
+				"honey":0.5,
+				"gunpowder":1.0,
+				"cattle":0.9,
+				"horses":0.9,
+				"leather":1.3,
+				"fur":1.0
 			}),
 		"moscow": new City(
 			200,
 			commodities["fur"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.6,
+				"pottery":1.3,
+				"honey":2.0,
+				"gunpowder":1.8,
+				"cattle":1.2,
+				"horses":1.4,
+				"leather":1.3,
+				"fur":0.5
 			}),
 		"suez": new City(
 			200,
 			commodities["leather"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.8,
+				"pottery":1.4,
+				"honey":1.2,
+				"gunpowder":0.5,
+				"cattle":1.0,
+				"horses":0.9,
+				"leather":0.5,
+				"fur":1.2
 			}),
 		"venice": new City(
 			200,
 			commodities["horses"],
 			{
-				"jade":0,
-				"pottery":0,
-				"honey":0,
-				"gunpowder":0,
-				"cattle":0,
-				"horses":0,
-				"leather":0,
-				"fur":0
+				"jade":1.5,
+				"pottery":1.5,
+				"honey":1.8,
+				"gunpowder":0.8,
+				"cattle":1.0,
+				"horses":0.75,
+				"leather":1.0,
+				"fur":1.0
 			}),
 	}
 	var node_connections ={
