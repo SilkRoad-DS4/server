@@ -6,6 +6,8 @@ function InteractiveObject(){
 	this.sound = new Array();
 	this.sound_src = new Array();
 	this.mouse_on = false;
+	
+	this.parent;
 }
 
 InteractiveObject.prototype.initialize = function(){
@@ -108,6 +110,14 @@ InteractiveObject.prototype.load_sound = function(obj){
 //Sets the object's image after it loads
 InteractiveObject.prototype.set_sound = function(name, sound){
 	this.sound[name] = sound;
+}
+
+//Stops noise
+InteractiveObject.prototype.stop = function(){	
+	for (var elem in this.sound) {
+		this.sound[elem].setAttribute('src',"");
+		this.sound[elem].load();
+	}
 }
 
 //Mouse Events

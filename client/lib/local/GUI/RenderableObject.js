@@ -22,6 +22,8 @@ function RenderableObject(){
 	this.image_src = new Array();
 	this.image_state = "default";
 	this.text;
+	
+	this.parent;
 }
 
 //Initializes the object

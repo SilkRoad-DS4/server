@@ -6,8 +6,13 @@ function SceneManager(renderer){
 }
 
 SceneManager.prototype.initialize = function(){
-	this.add_scene(new TestScene(0, this.renderer));
-	this.active_scene = this.scene_list[0];
+	//Add scenes
+	this.add_scene({"name":"TestScene", "scene": new TestScene(0, this.renderer, this)});
+	
+	//set the active scene
+	this.active_scene = this.scene_list[0]["scene"];
+	
+	//Initialize the scene
 	this.active_scene.initialize();
 }
 
@@ -17,15 +22,25 @@ SceneManager.prototype.add_scene = function(scene){
 
 SceneManager.prototype.update = function(){
 	this.active_scene.update();
-	var finished = this.active_scene.get_finished();
-	if(finished){
-		var next_scene = this.active_scene.get_next_scene();
-		this.goto_scene(next_scene);
-	}
-	
 }
 
-SceneManager.prototype.goto_scene = function(id){
+SceneManager.prototype.goto_scene = function(scene_name){
+	scene_name = scene_name.toLowerCase();
+	//Search for the appropriate scene
+	for(var i = 0; i < this.scene_list.length; i++){
+		var scene = this.scene_list[i];
+		if(scene["name"].toLowerCase() == scene_name){	
+			
+			//Kill previous scene
+			this.active_scene.stop();
+			
+			//Scene found
+			this.active_scene = scene["scene"];
+			
+			//Initialize the scene
+			this.active_scene.initialize();
+		}
+	}
 	
 	
 }

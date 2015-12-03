@@ -10,13 +10,6 @@ function TestButton(){
 	
 	this.width = 64;
 	this.height = 64;
-
-	//Text
-	this.text = {
-	"text":"Hello. My name is Inigo Montoya. You killed my father. Prepare to die.",
-	"size":12,
-	"font":"arial",
-	"text_align":"right"};
 	
 	//Images
 	this.image_src.push({"key":"default","value":"buttons/testButton.png"});
@@ -33,19 +26,7 @@ mixin(TestButton,RenderableObject);
 TestButton.prototype.constructor = TestButton;
 
 TestButton.prototype.onClick = function(){
-	//console.log("" + this.name + ": onClick triggered");
-}
-
-TestButton.prototype.onMouseEnter = function(){
-	//console.log("" + this.name + ": onMouseEnter triggered");
-}
-
-TestButton.prototype.onMouseMove = function(){
-	//console.log("" + this.name + ": onMouseMove triggered");
-}
-
-TestButton.prototype.onMouseLeave = function(){
-	//console.log("" + this.name + ": onMouseLeave triggered");
+	this.parent.parent.goto_scene("testscene");
 }
 
 function TestBackground(){
@@ -71,8 +52,6 @@ function TestMusic(){
 
 	//Music
 	this.sound_src.push({"key":"ambient","value":"testScene/music.mp3","loop":true,"volume":0.1});
-	
-	console.log("derp");
 }
 TestMusic.prototype = new InteractiveObject();
 TestMusic.prototype.constructor = TestMusic;
@@ -81,6 +60,7 @@ TestMusic.prototype.update = function(){
 	//Plays the music once it loads
 	if(typeof this.sound["ambient"] !== "undefined"){
 		if(this.sound["ambient"].paused == true){
+			
 			this.sound["ambient"].play();
 		}
 	}
