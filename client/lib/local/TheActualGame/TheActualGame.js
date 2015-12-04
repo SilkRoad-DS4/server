@@ -352,8 +352,14 @@ var TheActualGame = (function(){
 			com_name = com_name.toLowerCase();
 			return player.inventory[com_name].count;
 		},
+		player_buy_commodity:function(com_name){
+			return buy_commodity(com_name);
+		},
+		player_sell_commodity:function(com_name){
+			return sell_commodity(com_name);
+		},
 		player_goto_city:function(city_name){
-			player_goto(city_name);
+			return player_goto(city_name);
 		},
 		get_year:function(){
 			return get_year();
