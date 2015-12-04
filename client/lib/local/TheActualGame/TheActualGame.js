@@ -258,7 +258,7 @@ var TheActualGame = (function(){
 		city.gold += price;
 		
 		//Change player commodity count
-		player.commodity[com_name].buy();
+		player.inventory[com_name].buy();
 		
 		//Change the city price accordingly
 		city.sell(com_name);
@@ -292,7 +292,7 @@ var TheActualGame = (function(){
 		city.gold -= price;
 		
 		//Change player commodity count
-		player.commodity[com_name].sell();
+		player.inventory[com_name].sell();
 		
 		//Change the city price accordingly
 		city.buy(com_name);
@@ -316,7 +316,7 @@ var TheActualGame = (function(){
 		city = cities[player.location];
 		
 		//Return the price of the commodity
-		return city.get_price(com_name) * commodity[com_name].price;
+		return city.get_price(com_name) * commodities[com_name].price;
 	}
 	
 	
@@ -337,11 +337,11 @@ var TheActualGame = (function(){
 			return "" + cities[player.location].gold + "g";
 		},
 		get_commodity_sell_price:function(com_name){
-			return get_commodity_sell_price(com_name);
+			return "" + get_commodity_sell_price(com_name) + "g";
 		},
 		get_commodity_buy_price:function(){
 			var com_name = cities[player.location].commodity.name;
-			return get_commodity_buy_price(com_name);
+			return "" + get_commodity_buy_price(com_name) + "g";
 		},
 		get_player_city:function(){
 			return player.location;
@@ -353,7 +353,8 @@ var TheActualGame = (function(){
 			com_name = com_name.toLowerCase();
 			return player.inventory[com_name].count;
 		},
-		player_buy_commodity:function(com_name){
+		player_buy_commodity:function(){
+			var com_name = cities[player.location].commodity.name;
 			return buy_commodity(com_name);
 		},
 		player_sell_commodity:function(com_name){

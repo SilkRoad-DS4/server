@@ -3,7 +3,7 @@ function Player(){
 	this.gold = 100;
 	this.location = "hanoi";
 	this.inventory = {
-		"jade": new Commodity("jade",60,3),
+		"jade": new Commodity("jade",60,0),
 		"pottery": new Commodity("pottery",30,0),
 		"honey": new Commodity("honey",20,0),
 		"gunpowder": new Commodity("gunpowder",70,0),
