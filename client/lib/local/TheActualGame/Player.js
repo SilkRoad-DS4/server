@@ -1,9 +1,9 @@
 function Player(){
 	//Javascript work around, silly multiple inheritence rules
-	this.gold = 0;
+	this.gold = 100;
 	this.location = "hanoi";
-	this.inventory{
-		"jade": new Commodity("jade",60,0),
+	this.inventory = {
+		"jade": new Commodity("jade",60,3),
 		"pottery": new Commodity("pottery",30,0),
 		"honey": new Commodity("honey",20,0),
 		"gunpowder": new Commodity("gunpowder",70,0),

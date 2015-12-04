@@ -150,25 +150,25 @@ var TheActualGame = (function(){
 			"madras":true,
 			"suez":true		
 		},
-		"chittagong"{
+		"chittagong":{
 			"colombo":true,
 			"debal":true,
 			"hanoi":true
 		},
-		"colombo"{
+		"colombo":{
 			"chittagong":true,
 			"madras":true
 		},
-		"constantinople"{
+		"constantinople":{
 			"suez":true,
 			"venice":true
 		},
-		"debal"{
+		"debal":{
 			"aden":true,
 			"hanoi":true,
 			"moscow":true
 		},
-		"hanoi"{
+		"hanoi":{
 			"chittagong":true,
 			"moscow":true
 		},
@@ -200,6 +200,8 @@ var TheActualGame = (function(){
 			city.update();
 		}
 		
+		//Update the year
+		update_year();
 	}
 	
 	//Increases the year (Soon to be based on travel length)
@@ -225,13 +227,13 @@ var TheActualGame = (function(){
 		//Change the player location
 		player.location = city_name.toLowerCase();
 		
-		update_year();
+		update();
 		
 		return true;
 	}
 	
 	
-	var buy_commodity(com_name){
+	var buy_commodity = function(com_name){
 		//Get the commodity name
 		com_name = com_name.toLowerCase();
 		
@@ -265,7 +267,7 @@ var TheActualGame = (function(){
 		return true;
 	}
 	
-	var sell_commodity(com_name){
+	var sell_commodity = function(com_name){
 		//Get the commodity name
 		com_name = com_name.toLowerCase();
 		
@@ -299,14 +301,14 @@ var TheActualGame = (function(){
 		return true; 
 	}
 	
-	var get_commodity_buy_price(com_name){
+	var get_commodity_buy_price = function(com_name){
 	
 		//Doubles the sell commodity price
 		return get_commodity_sell_price(com_name) * 2;
 		
 	}
 	
-	var get_commodity_sell_price(com_name){
+	var get_commodity_sell_price = function(com_name){
 		//Get the commodity name
 		com_name = com_name.toLowerCase();
 		
@@ -331,13 +333,25 @@ var TheActualGame = (function(){
 	}
 	
 	return{
+		get_city_gold:function(){
+			return cities[player.location].gold;
+		},
+		get_commodity_sell_price:function(com_name){
+			return get_commodity_sell_price(com_name);
+		},
+		get_commodity_buy_price:function(com_name){
+			return get_commodity_buy_price(com_name);
+		},
 		get_player_city:function(){
 			return player.location;
 		},
+		get_player_gold:function(){
+			return "" + player.gold + " gold";
+		},
 		get_player_commodity_count:function(com_name){
 			com_name = com_name.toLowerCase();
-			return player.commodities[com_name].count;
-		}
+			return player.inventory[com_name].count;
+		},
 		player_goto_city:function(city_name){
 			player_goto(city_name);
 		},

@@ -15,7 +15,7 @@ function City(base_gold, commodity, modifiers){
 	
 	//The selling price of commodities
 	if(typeof modifiers !== "undefined"){
-		for(mod of modifiers){
+		for(mod in modifiers){
 			
 		}
 	}	
@@ -27,8 +27,8 @@ function City(base_gold, commodity, modifiers){
 }
 
 City.prototype.update = function(){
-	this.increase_gold;
-	this.change_prices;
+	this.increase_gold();
+	this.change_prices();
 }	
 
 City.prototype.buy = function(com_name){
@@ -50,6 +50,9 @@ City.prototype.toggle_enabled = function(){
 City.prototype.increase_gold = function(){
 	this.gold += (this.base_gold / 4) - (this.base_gold / 16);
 	this.gold = Math.floor(this.gold > 0 ? this.gold : 0);
+}
+
+City.prototype.change_prices = function(){
 }
 
 //If you get a negative number, the city you named does not exist
