@@ -196,8 +196,8 @@ var TheActualGame = (function(){
 	var update = function(){
 		
 		//Updates all the cities
-		for(city of cities){
-			city.update();
+		for(city in cities){
+			cities[city].update();
 		}
 		
 		//Update the year
@@ -334,12 +334,13 @@ var TheActualGame = (function(){
 	
 	return{
 		get_city_gold:function(){
-			return cities[player.location].gold;
+			return "" + cities[player.location].gold + "g";
 		},
 		get_commodity_sell_price:function(com_name){
 			return get_commodity_sell_price(com_name);
 		},
-		get_commodity_buy_price:function(com_name){
+		get_commodity_buy_price:function(){
+			var com_name = cities[player.location].commodity.name;
 			return get_commodity_buy_price(com_name);
 		},
 		get_player_city:function(){
