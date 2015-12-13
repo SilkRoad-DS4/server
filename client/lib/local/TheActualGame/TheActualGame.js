@@ -165,7 +165,7 @@ var TheActualGame = (function(){
 		},
 		"debal":{
 			"aden":true,
-			"hanoi":true,
+			"chittagong":true,
 			"moscow":true
 		},
 		"hanoi":{
@@ -278,6 +278,14 @@ var TheActualGame = (function(){
 		
 		//Checks if the player has enough gold
 		if(price > city.gold){
+		
+			//Returns a failed buy
+			return false;
+			
+		}
+		
+		//Checks if the player has enough commodity
+		if(player.inventory[com_name].count <= 0){
 		
 			//Returns a failed buy
 			return false;
