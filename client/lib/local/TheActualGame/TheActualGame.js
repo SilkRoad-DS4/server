@@ -165,7 +165,7 @@ var TheActualGame = (function(){
 		},
 		"debal":{
 			"aden":true,
-			"hanoi":true,
+			"chittagong":true,
 			"moscow":true
 		},
 		"hanoi":{
