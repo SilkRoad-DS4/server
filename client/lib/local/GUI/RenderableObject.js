@@ -17,7 +17,7 @@ function RenderableObject(){
 	//Visual Options
 	this.opacity = 1; //Unsupported
 	this.visible = true;
-	this.color = "#f00";
+	this.color = "#000";
 	this.image = new Array();
 	this.image_src = new Array();
 	this.image_state = "default";

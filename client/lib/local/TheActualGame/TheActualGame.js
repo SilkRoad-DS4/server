@@ -165,7 +165,7 @@ var TheActualGame = (function(){
 		},
 		"debal":{
 			"aden":true,
-			"chittagong":true,
+			"hanoi":true,
 			"moscow":true
 		},
 		"hanoi":{
@@ -259,7 +259,6 @@ var TheActualGame = (function(){
 		
 		//Change player commodity count
 		player.inventory[com_name].buy();
-		
 		//Change the city price accordingly
 		city.sell(com_name);
 		

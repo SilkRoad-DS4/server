@@ -6,7 +6,18 @@ function SceneManager(renderer){
 }
 
 SceneManager.prototype.initialize = function(){
-	this.add_scene({"name":"testscene", "scene":new TestScene(0, this.renderer, this)});
+	this.add_scene({"name":"world", "scene":new WorldScene(0, this.renderer, this)});
+	this.add_scene({"name":"chittagong", "scene":new BangladeshChittagong(0, this.renderer, this)});
+	this.add_scene({"name":"suez", "scene":new EgyptSuez(0, this.renderer, this)});
+	this.add_scene({"name":"madras", "scene":new IndiaMadras(0, this.renderer, this)});
+	this.add_scene({"name":"venice", "scene":new ItalyVenice(0, this.renderer, this)});
+	this.add_scene({"name":"debal", "scene":new PakistanDebal(0, this.renderer, this)});
+	this.add_scene({"name":"moscow", "scene":new RussiaAstrakham(0, this.renderer, this)});
+	this.add_scene({"name":"colombo", "scene":new SrilankaColombo(0, this.renderer, this)});
+	this.add_scene({"name":"constantinople", "scene":new TurkeyConstantinople(0, this.renderer, this)});
+	this.add_scene({"name":"hanoi", "scene":new VeitnamHanoi(0, this.renderer, this)});
+	this.add_scene({"name":"aden", "scene":new YemenAden(0, this.renderer, this)});
+	
 	this.active_scene = this.scene_list[0]["scene"];
 	this.active_scene.initialize();
 }
