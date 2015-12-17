@@ -1,8 +1,22 @@
 var Library = (function(){
-	var load_image = function (name, src, callback){
+	var image_library = new Array();
+	var hi = "hi";
+	var load_image = function (src_name, name, src, callback){
+		console.log(name);
+		if(typeof (image_library[src_name]) != "undefined"){
+			if(typeof (image_library[src_name][name]) != "undefined"){
+				callback.set_image(name, image_library[src_name][name]);
+				return true;
+			}
+		}
+		
 		var tmpImage = new Image();
 		tmpImage.src = "assets/images/" + src;
 		tmpImage.onload = function(){
+			if( typeof(image_library[src_name]) == "undefined"){
+				image_library[src_name] = new Array();
+			}
+			image_library[src_name][name] = tmpImage;
 			callback.set_image(name, tmpImage);
 		}
 		tmpImage.onerror = function(){
@@ -32,8 +46,8 @@ var Library = (function(){
 	}
 	
 	return{
-		load_image:function(name, src, callback){
-			load_image(name, src, callback);
+		load_image:function(src_name, name, src, callback){
+			load_image(src_name, name, src, callback);
 		},
 		
 		load_sound:function(obj, callback){

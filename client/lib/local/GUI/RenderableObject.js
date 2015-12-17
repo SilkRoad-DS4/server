@@ -34,7 +34,14 @@ RenderableObject.prototype.initialize = function(){
 //Initializes the object
 RenderableObject.prototype.renderable_initialize = function(){
 	for (elem of this.image_src){
-		this.load_image(elem["key"], elem["value"]);
+		console.log(elem["value"].Sprite)
+		if(typeof(elem["value"].Sprite) != "undefined"){
+			console.log(elem["value"]);
+			elem["value"].initialize();
+			this.image[elem["key"]] = elem["value"];
+		}else{
+			this.load_image(elem["key"], elem["value"]);
+		}
 	}
 	
 }
@@ -59,9 +66,15 @@ RenderableObject.prototype.get_type = function(){
 RenderableObject.prototype.get_image = function(){
 	
 	if(typeof(this.image[this.image_state]) !== "undefined"){
+		if(typeof(this.image[this.image_state].Sprite) != "undefined"){
+			return this.image[this.image_state].get_image();
+		}
 		return this.image[this.image_state];
 	}
 	
+	if(this.image["default"].Sprite != "undefined"){
+		return this.image["default"].get_image();
+	}
 	return this.image["default"];
 	
 }
@@ -83,7 +96,7 @@ RenderableObject.prototype.set_values = function(values){
 
 //Begins loading the object for the scene
 RenderableObject.prototype.load_image = function(name, src){	
-	Library.load_image(name, src, this);
+	Library.load_image(this.name, name, src, this);
 }
 
 //Sets the object's image after it loads

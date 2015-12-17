@@ -40,7 +40,8 @@ function WorldScene(id, renderer, parent){
 	this.add_object(new EnterCityName());
 	
 	
+	this.add_object(new EnterCityName());
 	
-	this.add_object(new TestMusic());
+	this.add_object(new TestSpriteObject());
 }
 WorldScene.prototype = new Scene(0);
