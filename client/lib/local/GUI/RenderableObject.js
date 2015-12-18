@@ -34,9 +34,7 @@ RenderableObject.prototype.initialize = function(){
 //Initializes the object
 RenderableObject.prototype.renderable_initialize = function(){
 	for (elem of this.image_src){
-		console.log(elem["value"].Sprite)
 		if(typeof(elem["value"].Sprite) != "undefined"){
-			console.log(elem["value"]);
 			elem["value"].initialize();
 			this.image[elem["key"]] = elem["value"];
 		}else{

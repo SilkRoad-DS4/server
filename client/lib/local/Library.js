@@ -2,7 +2,6 @@ var Library = (function(){
 	var image_library = new Array();
 	var hi = "hi";
 	var load_image = function (src_name, name, src, callback){
-		console.log(name);
 		if(typeof (image_library[src_name]) != "undefined"){
 			if(typeof (image_library[src_name][name]) != "undefined"){
 				callback.set_image(name, image_library[src_name][name]);
