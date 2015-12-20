@@ -31,11 +31,14 @@ Scene.prototype.render = function(){
 		if(elem.RenderableObject){
 			if(typeof elem.Event != "undefined"){
 				if(elem.Event == true){
-					elem.render();
-					continue;
+					elem.render(self.renderer);
+				}else{
+					self.renderer.add_to_queue(elem);
 				}
+			}else{
+				self.renderer.add_to_queue(elem);
 			}
-			self.renderer.add_to_queue(elem);
+			
 		}
 	});
 }

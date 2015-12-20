@@ -393,6 +393,9 @@ var TheActualGame = (function(){
 		player_goto_city:function(city_name){
 			return player_goto(city_name);
 		},
+		is_event:function(){
+			return false;
+		},
 		get_year:function(){
 			return get_year();
 		}

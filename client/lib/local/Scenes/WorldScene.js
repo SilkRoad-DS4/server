@@ -1,6 +1,6 @@
 function WorldScene(id, renderer, parent){
 	Scene.call(this, id, renderer, parent);
-	
+
 	this.add_object(new DateScroll());
 	this.add_object(new DateScrollText());
 	this.add_object(new WorldBackground());
@@ -43,5 +43,8 @@ function WorldScene(id, renderer, parent){
 	this.add_object(new EnterCityName());
 	
 	this.add_object(new TestSpriteObject());
+	var test = new EventOverlay();
+	this.add_object(test);
+	console.log(test);
 }
 WorldScene.prototype = new Scene(0);
