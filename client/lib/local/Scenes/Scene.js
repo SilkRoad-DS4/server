@@ -29,6 +29,12 @@ Scene.prototype.render = function(){
 	var self = this;
 	this.object_list.forEach(function(elem){
 		if(elem.RenderableObject){
+			if(typeof elem.Event != "undefined"){
+				if(elem.Event == true){
+					elem.render();
+					continue;
+				}
+			}
 			self.renderer.add_to_queue(elem);
 		}
 	});

@@ -25,7 +25,7 @@ function TestSpriteObject(){
 	
 	this.x = 0;
 	this.y = 0;
-	this.z = 10000;
+	this.z = 1000;
 	
 	this.width = 32;
 	this.height = 32;
