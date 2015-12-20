@@ -71,7 +71,9 @@ RenderableObject.prototype.get_image = function(){
 	}
 	
 	if(this.image["default"].Sprite != "undefined"){
-		return this.image["default"].get_image();
+		if(this.image["default"].Sprite == true){
+			return this.image["default"].get_image();
+		}
 	}
 	return this.image["default"];
 	

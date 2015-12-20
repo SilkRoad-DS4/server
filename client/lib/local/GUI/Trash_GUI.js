@@ -7,12 +7,12 @@ function TestSprite(){
 	this.height = 256;
 	this.section_height = 32;
 	this.section_width = 32;
-	this.sprite_count_x = 3;
-	this.sprite_count_y = 4;
+	this.sprite_count_x = 7;
+	this.sprite_count_y = 1;
 	this.frame_wait_count = 12;
 	
 	//Images
-	this.main_image_src = "test_sprite_01.png";
+	this.main_image_src = "characterSpriteSheet.png";
 
 }
 TestSprite.prototype = new Sprite();
@@ -23,8 +23,8 @@ function TestSpriteObject(){
 	
 	this.name = "TestSpriteObject";
 	
-	this.x = 320;
-	this.y = 240;
+	this.x = 0;
+	this.y = 0;
 	this.z = 10000;
 	
 	this.width = 32;
@@ -36,3 +36,10 @@ function TestSpriteObject(){
 }
 TestSpriteObject.prototype = new RenderableObject();
 TestSpriteObject.prototype.constructor = TestSpriteObject;
+
+TestSpriteObject.prototype.update = function(){
+	var tempPos = TheActualGame.get_player_position();
+
+	this.x = tempPos["x"];
+	this.y = tempPos["y"] - 14;
+}

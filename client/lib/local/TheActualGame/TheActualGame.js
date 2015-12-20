@@ -14,6 +14,8 @@ var TheActualGame = (function(){
 	};
 	var cities = {
 		"aden": new City(
+			252,
+			295,
 			200,
 			commodities["horses"],
 			{
@@ -27,6 +29,8 @@ var TheActualGame = (function(){
 				"fur":1.5
 			}),
 		"chittagong": new City(
+			427,
+			257,
 			200,
 			commodities["pottery"],
 			{
@@ -40,6 +44,8 @@ var TheActualGame = (function(){
 				"fur":1.6
 			}),
 		"colombo": new City(
+			385,
+			327,
 			200,
 			commodities["gunpowder"],
 			{
@@ -53,6 +59,8 @@ var TheActualGame = (function(){
 				"fur":1.8
 			}),
 		"constantinople": new City(
+			182,
+			187,
 			200,
 			commodities["pottery"],
 			{
@@ -66,6 +74,8 @@ var TheActualGame = (function(){
 				"fur":1.3
 			}),
 		"debal": new City(
+			332,
+			254,
 			200,
 			commodities["cattle"],
 			{
@@ -79,6 +89,8 @@ var TheActualGame = (function(){
 				"fur":0.75
 			}),
 		"hanoi": new City(
+			500,
+			267,
 			200,
 			commodities["jade"],
 			{
@@ -92,6 +104,8 @@ var TheActualGame = (function(){
 				"fur":1.8
 			}),
 		"madras": new City(
+			380,
+			297,
 			200,
 			commodities["honey"],
 			{
@@ -105,6 +119,8 @@ var TheActualGame = (function(){
 				"fur":1.0
 			}),
 		"moscow": new City(
+			212,
+			130,
 			200,
 			commodities["fur"],
 			{
@@ -119,6 +135,8 @@ var TheActualGame = (function(){
 			}),
 		"suez": new City(
 			200,
+			229,
+			200,
 			commodities["leather"],
 			{
 				"jade":1.8,
@@ -131,6 +149,8 @@ var TheActualGame = (function(){
 				"fur":1.2
 			}),
 		"venice": new City(
+			107,
+			170,
 			200,
 			commodities["horses"],
 			{
@@ -352,6 +372,9 @@ var TheActualGame = (function(){
 		},
 		get_player_city:function(){
 			return player.location;
+		},
+		get_player_position:function(){
+			return {"x":cities[player.location].x,"y":cities[player.location].y};
 		},
 		get_player_gold:function(){
 			return "" + player.gold + " gold";

@@ -1,8 +1,12 @@
-function City(base_gold, commodity, modifiers){
+function City(x, y, base_gold, commodity, modifiers){
 	//Javascript work around, silly multiple inheritence rules
 	this.City = true;
 	
 	this.enabled = true;
+	
+	//Position on the world map
+	this.x = x;
+	this.y = y;
 	
 	//The city's commodity
 	this.commodity = commodity;

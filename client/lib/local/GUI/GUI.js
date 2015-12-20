@@ -1183,8 +1183,8 @@ function HanoiCity(){
 	this.y = 275;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1215,8 +1215,8 @@ function ChittagongCity(){
 	this.y = 265;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1246,8 +1246,8 @@ function MadrasCity(){
 	this.y = 305;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1277,8 +1277,8 @@ function ColomboCity(){
 	this.y = 335;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1308,8 +1308,8 @@ function DebalCity(){
 	this.y = 262;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1339,8 +1339,8 @@ function YemenCity(){
 	this.y = 303;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1372,8 +1372,8 @@ function SuezCity(){
 	this.y = 237;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1404,8 +1404,8 @@ function AstrakhamCity(){
 	this.y = 138;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1435,8 +1435,8 @@ function ConstantinopleCity(){
 	this.y = 195;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
@@ -1467,8 +1467,8 @@ function VeniceCity(){
 	this.y = 178;
 	this.z = 500;
 	
-	this.width = 15;
-	this.height = 15;
+	this.width = 16;
+	this.height = 16;
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
