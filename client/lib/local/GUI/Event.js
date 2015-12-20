@@ -45,17 +45,18 @@ function Event(){
 	}	
 
 	this.update = function(){
-		if(this.current_year_finished != true){
+		if(TheActualGame.get_year_int() != this.previous_year){
 			var isEvent = TheActualGame.is_event();
 			if(isEvent == true){
 				this.object_list.forEach(function(elem){
-					if(typeof elem.get_event_text == "function"){
-						elem.get_event_text();
+					if(typeof elem.update == "function"){
+						elem.update();
 					}
 				});
 				this.visible = true;
 			}
-			this.current_year_finished = true;
+			this.previous_year = TheActualGame.get_year_int();
+			console.log(this.previous_year);
 		}
 	}
 
@@ -78,6 +79,8 @@ function EventOverlay(){
 	this.name = "EventOverlay";
 
 	this.add_object(new EventBackground());
+	this.add_object(new EventTitle());
+	this.add_object(new EventText());
 }
 EventOverlay.prototype = new Event();
 EventOverlay.prototype.constructor = EventOverlay;
@@ -88,14 +91,70 @@ function EventBackground(){
 	this.name = "EventBackground";
 	
 	this.x = 0;
-	this.y = 0;
+	this.y = -20;
 	this.z = 10000;
 	
 	this.width = 640;
 	this.height = 480;
 
 	//Images
-	this.image_src.push({"key":"default","value":"backgrounds/EventBackground.jpg"});
+	this.image_src.push({"key":"default","value":"backgrounds/EventBackground.png"});
 }
 EventBackground.prototype = new RenderableObject();
 EventBackground.prototype.constructor = EventBackground;
+
+function EventTitle(){
+	RenderableObject.call(this);
+	
+	this.name = "EventTitle";
+	this.color = "#000";
+	
+	this.text = {
+	"text":"100 BC",
+	"size":30,
+	"font":"sarif",
+	"text_align":"left"};
+	
+	this.x = 120;
+	this.y = 50;
+	this.z = 10001;
+	
+	this.width = 420;
+	this.height = 480;
+	
+	this.update = function(){
+		//Sets the Text to the city name
+		var event = TheActualGame.get_event();
+		this.text["text"] = event["title"];
+	}
+}
+EventTitle.prototype = new RenderableObject();
+EventTitle.prototype.constructor = EventTitle;
+
+function EventText(){
+	RenderableObject.call(this);
+	
+	this.name = "EventText";
+	this.color = "#000";
+	
+	this.text = {
+	"text":"100 BC",
+	"size":18,
+	"font":"SRScript sansserif",
+	"text_align":"left"};
+	
+	this.x = 120;
+	this.y = 90;
+	this.z = 10002;
+	
+	this.width = 420;
+	this.height = 480;
+	
+	this.update = function(){
+		//Sets the Text to the city name
+		var event = TheActualGame.get_event();
+		this.text["text"] = event["text"];
+	}
+}
+EventText.prototype = new RenderableObject();
+EventText.prototype.constructor = EventText;

@@ -1,5 +1,15 @@
 var TheActualGame = (function(){
+	var event = {
+		"-130":{
+			"title":"Welcome to the Silk Road",
+			"text":"The aim of the game is to travel from city to city buying and selling commodities and trying to raise as much gold as possible as time progresses throughout the history of the Silk Road. You begin with 100 gold, and you can enter a city by clicking the Enter City parchment. To travel, you click on a city that has a road connected to the city you are currently in. Once in a city, you can see what the have to sell, and how much gold they currently have. Their amount of gold increases as time passes and as you travel. Keep in mind that commodities are worth more in some places than others!"
+		},
+		"-125":{
+			"title":"Test Event",
+			"text":"Text"
+		}
 	
+	};
 	var starting_year = -130;
 	var year = -130;
 	var commodities = {
@@ -394,10 +404,16 @@ var TheActualGame = (function(){
 			return player_goto(city_name);
 		},
 		is_event:function(){
-			return false;
+			return (typeof event[year] != "undefined");
+		},
+		get_year_int:function(){
+			return year;
 		},
 		get_year:function(){
 			return get_year();
+		},
+		get_event:function(){
+			return event[year];
 		}
 		
 	}

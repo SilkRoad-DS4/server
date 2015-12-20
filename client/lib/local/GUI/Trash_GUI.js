@@ -12,7 +12,7 @@ function TestSprite(){
 	this.frame_wait_count = 12;
 	
 	//Images
-	this.main_image_src = "characterSpriteSheet.png";
+	this.main_image_src = "characterSpriteSheet_outlined.png";
 
 }
 TestSprite.prototype = new Sprite();
