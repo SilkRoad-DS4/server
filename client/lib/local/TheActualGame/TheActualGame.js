@@ -2,11 +2,18 @@ var TheActualGame = (function(){
 	var event = {
 		"-130":{
 			"title":"Welcome to the Silk Road",
-			"text":"The aim of the game is to travel from city to city buying and selling commodities and trying to raise as much gold as possible as time progresses throughout the history of the Silk Road. You begin with 100 gold, and you can enter a city by clicking the Enter City parchment. To travel, you click on a city that has a road connected to the city you are currently in. Once in a city, you can see what the have to sell, and how much gold they currently have. Their amount of gold increases as time passes and as you travel. Keep in mind that commodities are worth more in some places than others!"
+			"text":"The aim of the game is to travel from city to city buying and selling commodities and trying to raise as much gold as possible as time progresses throughout the history of the Silk Road. You begin with 100 gold, and you can enter a city by clicking the Enter City parchment. To travel, you click on a city that has a road connected to the city you are currently in. Once in a city, you can see what the have to sell, and how much gold they currently have. Their amount of gold increases as time passes and as you travel. Keep in mind that commodities are worth more in some places than others!",
+			"event":""
 		},
-		"-125":{
-			"title":"Test Event",
-			"text":"Text"
+		"30":{
+			"title":"30 BC - Silk Roads Expand",
+			"text":"Trade increases between China, South East Asia, India, Middle East, Africa and Europe. City gold now increases faster.",
+			"event":""
+		},
+		"10":{
+			"title":"1 CE - Han Army Created",
+			"text":"The Han Army now polices the Silk Road with 70000 infantry and cavalry. Crime rates are down. \n Cities now have increased gold.",
+			"event":""
 		}
 	
 	};
@@ -364,7 +371,7 @@ var TheActualGame = (function(){
 		if(year < 0){
 			yearString += " BC";
 		}else{
-			yearString += " AD";
+			yearString += " CE";
 		}
 		return yearString;
 	}

@@ -111,8 +111,8 @@ function EventTitle(){
 	
 	this.text = {
 	"text":"100 BC",
-	"size":30,
-	"font":"sarif",
+	"size":100,
+	"font":"SRScript",
 	"text_align":"left"};
 	
 	this.x = 120;
@@ -139,12 +139,12 @@ function EventText(){
 	
 	this.text = {
 	"text":"100 BC",
-	"size":18,
-	"font":"SRScript sansserif",
+	"size":60,
+	"font":"SRScript",
 	"text_align":"left"};
 	
 	this.x = 120;
-	this.y = 90;
+	this.y = 100;
 	this.z = 10002;
 	
 	this.width = 420;

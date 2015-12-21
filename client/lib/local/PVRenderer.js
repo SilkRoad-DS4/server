@@ -82,7 +82,7 @@ PVRenderer.prototype.draw = function(){
 							if (testWidth > elem.width && i > 0){
 								self.b_c_context.fillText(line, elem.x, tempY, elem.width, elem.height);
 								line = words[i] + " ";
-								tempY += height;
+								tempY += height / 3.5;
 							}else{
 								line = testLine;
 							}
