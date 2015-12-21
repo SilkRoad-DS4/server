@@ -49,14 +49,18 @@ function Event(){
 			var isEvent = TheActualGame.is_event();
 			if(isEvent == true){
 				this.object_list.forEach(function(elem){
-					if(typeof elem.update == "function"){
+					if(typeof elem.update == "function"){	
 						elem.update();
 					}
 				});
+				var event = TheActualGame.get_event();
+				var event_function = event["event"];
+				if(typeof event_function == "function"){
+					event_function();
+				}
 				this.visible = true;
 			}
 			this.previous_year = TheActualGame.get_year_int();
-			console.log(this.previous_year);
 		}
 	}
 
@@ -111,7 +115,7 @@ function EventTitle(){
 	
 	this.text = {
 	"text":"100 BC",
-	"size":100,
+	"size":80,
 	"font":"SRScript",
 	"text_align":"left"};
 	
@@ -125,7 +129,7 @@ function EventTitle(){
 	this.update = function(){
 		//Sets the Text to the city name
 		var event = TheActualGame.get_event();
-		this.text["text"] = event["title"];
+		this.text["text"] = TheActualGame.get_year() + " - " + event["title"];
 	}
 }
 EventTitle.prototype = new RenderableObject();

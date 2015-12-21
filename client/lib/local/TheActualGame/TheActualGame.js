@@ -1,22 +1,6 @@
 var TheActualGame = (function(){
-	var event = {
-		"-130":{
-			"title":"Welcome to the Silk Road",
-			"text":"The aim of the game is to travel from city to city buying and selling commodities and trying to raise as much gold as possible as time progresses throughout the history of the Silk Road. You begin with 100 gold, and you can enter a city by clicking the Enter City parchment. To travel, you click on a city that has a road connected to the city you are currently in. Once in a city, you can see what the have to sell, and how much gold they currently have. Their amount of gold increases as time passes and as you travel. Keep in mind that commodities are worth more in some places than others!",
-			"event":""
-		},
-		"30":{
-			"title":"30 BC - Silk Roads Expand",
-			"text":"Trade increases between China, South East Asia, India, Middle East, Africa and Europe. City gold now increases faster.",
-			"event":""
-		},
-		"10":{
-			"title":"1 CE - Han Army Created",
-			"text":"The Han Army now polices the Silk Road with 70000 infantry and cavalry. Crime rates are down. \n Cities now have increased gold.",
-			"event":""
-		}
+
 	
-	};
 	var starting_year = -130;
 	var year = -130;
 	var commodities = {
@@ -230,6 +214,8 @@ var TheActualGame = (function(){
 
 	var player = new Player();
 	
+	
+	
 	var update = function(){
 		
 		//Updates all the cities
@@ -243,7 +229,7 @@ var TheActualGame = (function(){
 	
 	//Increases the year (Soon to be based on travel length)
 	var update_year = function(){
-		year += 5;
+		year += 10;
 	}
 	
 	var player_goto = function(city_name){
@@ -280,6 +266,14 @@ var TheActualGame = (function(){
 		//Get the price of the commodity
 		var price = get_commodity_buy_price(com_name);
 		
+		//Checks if the city is accepting trades
+		if(false == city.trading){
+		
+			//Returns a failed buy
+			return false;
+			
+		}
+		
 		//Checks if the player has enough gold
 		if(price > player.gold){
 		
@@ -313,10 +307,18 @@ var TheActualGame = (function(){
 		//Get the price of the commodity
 		var price = get_commodity_sell_price(com_name)
 		
+		//Checks if the city is accepting trades
+		if(false == city.trading){
+		
+			//Returns a failed sale
+			return false;
+			
+		}
+		
 		//Checks if the player has enough gold
 		if(price > city.gold){
 		
-			//Returns a failed buy
+			//Returns a failed sale
 			return false;
 			
 		}
@@ -324,7 +326,7 @@ var TheActualGame = (function(){
 		//Checks if the player has enough commodity
 		if(player.inventory[com_name].count <= 0){
 		
-			//Returns a failed buy
+			//Returns a failed sale
 			return false;
 			
 		}
@@ -376,6 +378,193 @@ var TheActualGame = (function(){
 		return yearString;
 	}
 	
+	var increase_city_gold = function(){
+		for(city in cities){
+			cities[city].gold += 500;
+		}
+	}
+	
+	var double_city_gold = function(city){
+		cities[city].gold *= 2;
+	}
+	
+	var increase_city_growth = function(){
+		for(city in cities){
+			cities[city].gold_growth_mod += 0.5;
+		}
+	}
+	
+	var reset_routes = function(){
+		for(city in node_connections){
+			for(route in node_connections[city]){
+				node_connections[city][route] = true;
+			}
+		}
+	}
+	
+	var reset_trading = function(){
+		for(city in cities){
+			cities[city].trading = true;
+		}
+	}
+	
+	var disable_route = function(city, city2){
+		if(typeof node_connections[city][city2] != "undefined"){
+			node_connections[city][city2] = false;
+		}
+		if(typeof node_connections[city2][city] != "undefined"){
+			node_connections[city2][city] = false;
+		}
+	}
+	
+	var disable_city_routes = function(city){
+		for(city2 in node_connections[city]){
+			if(typeof node_connections[city][city2] != "undefined"){
+				node_connections[city][city2] = false;
+			}
+			if(typeof node_connections[city2][city] != "undefined"){
+				node_connections[city2][city] = false;
+			}
+		}
+	}
+	
+	var disable_trading = function(city){
+		cities[city].trading = false;
+	}
+	var remove_city_gold = function(city){
+		cities[city].gold = 0;
+	}
+	
+	var re_reset = function(){
+		reset_trading();
+		reset_routes();
+	}
+	var re_flooding_in_venice = function(){
+		re_reset();
+		disable_city_routes("venice");
+	}
+	var re_raiders_in_the_north = function(){
+		re_reset();
+		disable_trading("hanoi");
+		disable_trading("moscow");
+		disable_trading("venice");
+	}
+	var re_mad_cow_infection = function(){
+		re_reset();
+		player.inventory["cattle"].count = 0;
+	}
+	var re_gunpowder_accidentally_exploded = function(){
+		re_reset();
+		player.inventory["gunpowder"].count = 0;
+	}
+	var re_thieves_encounter_1 = function(){
+		re_reset();
+		player.inventory["pottery"].count = 0;
+		player.inventory["leather"].count = 0;
+	}
+	var re_thieves_encounter_2 = function(){
+		re_reset();
+		player.inventory["honey"].count = 0;
+		player.inventory["horses"].count = 0;
+	}
+	var re_extreme_drought = function(){
+		re_reset();
+		remove_city_gold("aden");
+		remove_city_gold("suez");
+	}
+	var re_venice_is_booming = function(){
+		re_reset();
+		double_city_gold("venice");
+	}
+	var re_moscow_is_booming = function(){
+		re_reset();
+		double_city_gold("moscow");
+	}
+	var re_heavy_immigration = function(){
+		re_reset();
+		disable_city_routes("constantinople");
+	}
+	var re_bad_weather = function(){
+		re_reset();
+		disable_city_routes("colombo");
+	}
+	var random_events = {
+		"0":{
+			"title":"Massive Flooding in Venice",
+			"text":"The flooding of the canals has rendered trading in venice a disaster. Routes to Venice have been closed.",
+			"event":re_flooding_in_venice
+		},
+		"1":{
+			"title":"Raiders in the North",
+			"text":"Dangerous raiding parties have stopped all trading in Hanoi, Moscow, and Venice.",
+			"event":re_raiders_in_the_north
+		},
+		"2":{
+			"title":"Mad Cow Infection",
+			"text":"All of your cattle has perished due to mad cow disease.",
+			"event":re_mad_cow_infection
+		},
+		"3":{
+			"title":"Gunpowder Accidently Exploded",
+			"text":"All of your tradeable gunpowder is now gone, luckily you survived unscathed.",
+			"event":re_gunpowder_accidentally_exploded
+		},
+		"4":{
+			"title":"Thieves Encounter!",
+			"text":"The thieves got away with all of your Pottery and Leather",
+			"event":re_thieves_encounter_1
+		},
+		"5":{
+			"title":"Thieves Encounter!",
+			"text":"The thieves got away with all of your Horses and Honey",
+			"event":re_thieves_encounter_2
+		},
+		"6":{
+			"title":"Extreme Drought",
+			"text":"The drought in Aden and Suez has led to both cities losing all current gold in the cities. ",
+			"event":re_extreme_drought
+		},
+		"7":{
+			"title":"Venice is booming!",
+			"text":"Venice has been very successful in trading has doubled its current gold!",
+			"event":re_venice_is_booming
+		},
+		"8":{
+			"title":"Moscow is booming!",
+			"text":"Moscow has been very successful in trading has doubled its current gold!",
+			"event":re_moscow_is_booming
+		},
+		"9":{
+			"title":"Heavy Immigration",
+			"text":"All of the heavy immigration to Constantinople has blocked all roads into Constantinople",
+			"event":re_heavy_immigration
+		},
+		"10":{
+			"title":"Bad Weather around Colombo",
+			"text":"Heavy thunderstorms have made travel to Colombo far too dangerous.",
+			"event":re_bad_weather
+		}
+	}
+	var event = {
+		"-130":{
+			"title":"Welcome to the Silk Road",
+			"text":"The aim of the game is to travel from city to city buying and selling commodities and trying to raise as much gold as possible as time progresses throughout the history of the Silk Road. You begin with 100 gold, and you can enter a city by clicking the Enter City parchment. To travel, you click on a city that has a road connected to the city you are currently in. Once in a city, you can see what the have to sell, and how much gold they currently have. Their amount of gold increases as time passes and as you travel. Keep in mind that commodities are worth more in some places than others!",
+			"event":""
+		},
+		"-100":random_events[Math.floor(Math.random() * 11)],
+		"-30":{
+			"title":"Silk Roads Expand",
+			"text":"Trade increases between China, South East Asia, India, Middle East, Africa and Europe. City gold now increases faster.",
+			"event":increase_city_growth
+		},
+		"10":{
+			"title":"Han Army Created",
+			"text":"The Han Army now polices the Silk Road with 70000 infantry and cavalry. Crime rates are down. Cities now have increased gold.",
+			"event":increase_city_gold
+		}
+	
+	};
+	
 	return{
 		get_city_gold:function(){
 			return "" + cities[player.location].gold + "g";
@@ -418,6 +607,15 @@ var TheActualGame = (function(){
 		},
 		get_year:function(){
 			return get_year();
+		},
+		get_final_gold:function(){
+			var com_gold = 0;
+			for(com in player.inventory){
+				com_gold += 50 * player.inventory[com].count;
+			}
+			var gold = player.gold + com_gold;
+			
+			return "" + gold + " gold";
 		},
 		get_event:function(){
 			return event[year];

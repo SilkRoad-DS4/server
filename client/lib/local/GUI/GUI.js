@@ -1513,10 +1513,10 @@ function FinalGold(){
 	this.text = {
 	"text":"500g",
 	"size":30,
-	"font":"sarif",
+	"font":"serif",
 	"text_align":"Left"};
 	
-	this.x = 330;
+	this.x = 380;
 	this.y = 293;
 	this.z = 500;
 	
@@ -1524,7 +1524,7 @@ function FinalGold(){
 	this.height = 35;
 	
 	this.update = function(){
-		//Sets the Text to the city name
+		this.text["text"] = TheActualGame.get_final_gold();
 		
 	}
 }
@@ -1670,3 +1670,14 @@ function AdenBackground(){
 }
 AdenBackground.prototype = new RenderableObject();
 AdenBackground.prototype.constructor = AdenBackground
+
+function YearWatcher(){	
+	this.name = "YearWatcher";
+	this.update = function() {
+		var year = TheActualGame.get_year_int();
+		if(year >  150){
+			this.parent.parent.goto_scene("end");
+		}
+	}
+}
+EnterCityName.prototype.constructor = EnterCityName;

@@ -44,5 +44,6 @@ function WorldScene(id, renderer, parent){
 	
 	this.add_object(new TestSpriteObject());
 	this.add_object(new EventOverlay());
+	this.add_object(new YearWatcher());
 }
 WorldScene.prototype = new Scene(0);

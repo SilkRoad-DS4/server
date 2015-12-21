@@ -11,8 +11,12 @@ function City(x, y, base_gold, commodity, modifiers){
 	//The city's commodity
 	this.commodity = commodity;
 	
+	//If the city can be traded with
+	this.trading = true;
+	
 	//Current gold of the city
 	this.gold = base_gold;
+	this.gold_growth_mod = 1;
 	
 	//Used to calculate gold growth
 	this.base_gold = base_gold;
@@ -52,7 +56,7 @@ City.prototype.toggle_enabled = function(){
 }	
 
 City.prototype.increase_gold = function(){
-	this.gold += (this.base_gold / 4) - (this.base_gold / 16);
+	this.gold += this.gold_growth_mod * (this.base_gold / 4) - (this.base_gold / 16);
 	this.gold = Math.floor(this.gold > 0 ? this.gold : 0);
 }
 

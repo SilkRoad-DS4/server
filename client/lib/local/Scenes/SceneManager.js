@@ -17,7 +17,7 @@ SceneManager.prototype.initialize = function(){
 	this.add_scene({"name":"constantinople", "scene":new TurkeyConstantinople(0, this.renderer, this)});
 	this.add_scene({"name":"hanoi", "scene":new VeitnamHanoi(0, this.renderer, this)});
 	this.add_scene({"name":"aden", "scene":new YemenAden(0, this.renderer, this)});
-	
+	this.add_scene({"name":"end", "scene":new EndScene(0, this.renderer, this)});
 	this.active_scene = this.scene_list[0]["scene"];
 	this.active_scene.initialize();
 }
