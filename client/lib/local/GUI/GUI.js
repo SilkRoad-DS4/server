@@ -1188,7 +1188,7 @@ function HanoiCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1199,7 +1199,14 @@ function HanoiCity(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("hanoi");
 	}
-
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("hanoi")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
+	}
 }
 HanoiCity.prototype = new InteractiveObject();
 mixin(HanoiCity,RenderableObject);
@@ -1220,7 +1227,7 @@ function ChittagongCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1230,6 +1237,14 @@ function ChittagongCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("chittagong");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("chittagong")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 }
 ChittagongCity.prototype = new InteractiveObject();
@@ -1251,7 +1266,7 @@ function MadrasCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1261,6 +1276,14 @@ function MadrasCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("madras");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("madras")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 }
 MadrasCity.prototype = new InteractiveObject();
@@ -1282,7 +1305,7 @@ function ColomboCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1292,6 +1315,14 @@ function ColomboCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("colombo");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("colombo")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 }
 ColomboCity.prototype = new InteractiveObject();
@@ -1313,7 +1344,7 @@ function DebalCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1323,6 +1354,14 @@ function DebalCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("debal");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("debal")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 }
 DebalCity.prototype = new InteractiveObject();
@@ -1344,7 +1383,7 @@ function YemenCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1356,7 +1395,14 @@ function YemenCity(){
 		TheActualGame.player_goto_city("aden");
 	}
 
-
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("aden")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
+	}
 }
 YemenCity.prototype = new InteractiveObject();
 mixin(YemenCity,RenderableObject);
@@ -1377,7 +1423,7 @@ function SuezCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1387,6 +1433,14 @@ function SuezCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("suez");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("suez")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 
 }
@@ -1409,7 +1463,7 @@ function AstrakhamCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1419,6 +1473,14 @@ function AstrakhamCity(){
 	this.onClick = function(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("moscow");
+	}
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("moscow")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
 	}
 }
 AstrakhamCity.prototype = new InteractiveObject();
@@ -1440,7 +1502,7 @@ function ConstantinopleCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1451,7 +1513,14 @@ function ConstantinopleCity(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("constantinople");
 	}
-
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("constantinople")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
+	}
 }
 ConstantinopleCity.prototype = new InteractiveObject();
 mixin(ConstantinopleCity,RenderableObject);
@@ -1472,7 +1541,7 @@ function VeniceCity(){
 
 	//Images
 	this.image_src.push({"key":"default","value":"backgrounds/Location.png"});
-	this.image_src.push({"key":"onMouseEnter","value":"backgrounds/Location.png"});
+	this.image_src.push({"key":"closed","value":"backgrounds/Bad_Location.png"});
 	
 	//Sounds
 	//this.sound_src.push({"key":"onClick","value":"testScene/onClick.wav"});
@@ -1483,7 +1552,14 @@ function VeniceCity(){
 		//Goes to the city if possible
 		TheActualGame.player_goto_city("venice");
 	}
-
+	this.update = function(){
+		//Goes to the city if possible
+		if(TheActualGame.get_city_trading("venice")){
+			this.image_state = "default";
+		}else{
+			this.image_state = "closed";
+		}
+	}
 }
 VeniceCity.prototype = new InteractiveObject();
 mixin(VeniceCity,RenderableObject);
@@ -1675,7 +1751,7 @@ function YearWatcher(){
 	this.name = "YearWatcher";
 	this.update = function() {
 		var year = TheActualGame.get_year_int();
-		if(year >  150){
+		if(year >  450){
 			this.parent.parent.goto_scene("end");
 		}
 	}

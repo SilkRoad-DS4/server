@@ -218,6 +218,7 @@ var TheActualGame = (function(){
 	
 	var update = function(){
 		
+		player.gold += 5; 
 		//Updates all the cities
 		for(city in cities){
 			cities[city].update();
@@ -419,9 +420,6 @@ var TheActualGame = (function(){
 	
 	var disable_city_routes = function(city){
 		for(city2 in node_connections[city]){
-			if(typeof node_connections[city][city2] != "undefined"){
-				node_connections[city][city2] = false;
-			}
 			if(typeof node_connections[city2][city] != "undefined"){
 				node_connections[city2][city] = false;
 			}
@@ -505,7 +503,7 @@ var TheActualGame = (function(){
 			"event":re_mad_cow_infection
 		},
 		"3":{
-			"title":"Gunpowder Accidently Exploded",
+			"title":"Gunpowder Explosion",
 			"text":"All of your tradeable gunpowder is now gone, luckily you survived unscathed.",
 			"event":re_gunpowder_accidentally_exploded
 		},
@@ -552,17 +550,27 @@ var TheActualGame = (function(){
 			"event":""
 		},
 		"-100":random_events[Math.floor(Math.random() * 11)],
+		"-50":random_events[Math.floor(Math.random() * 11)],
 		"-30":{
 			"title":"Silk Roads Expand",
 			"text":"Trade increases between China, South East Asia, India, Middle East, Africa and Europe. City gold now increases faster.",
 			"event":increase_city_growth
 		},
+		"0":random_events[Math.floor(Math.random() * 11)],
 		"10":{
 			"title":"Han Army Created",
 			"text":"The Han Army now polices the Silk Road with 70000 infantry and cavalry. Crime rates are down. Cities now have increased gold.",
 			"event":increase_city_gold
-		}
-	
+		},
+		"50":random_events[Math.floor(Math.random() * 11)],
+		"100":random_events[Math.floor(Math.random() * 11)],
+		"150":random_events[Math.floor(Math.random() * 11)],
+		"200":random_events[Math.floor(Math.random() * 11)],
+		"250":random_events[Math.floor(Math.random() * 11)],
+		"300":random_events[Math.floor(Math.random() * 11)],
+		"350":random_events[Math.floor(Math.random() * 11)],
+		"400":random_events[Math.floor(Math.random() * 11)],
+		"450":random_events[Math.floor(Math.random() * 11)]
 	};
 	
 	return{
@@ -570,7 +578,7 @@ var TheActualGame = (function(){
 			return "" + cities[player.location].gold + "g";
 		},
 		get_commodity_sell_price:function(com_name){
-			return "" + get_commodity_sell_price(com_name) + "g";
+			return "" + Math.floor(get_commodity_sell_price(com_name)) + "g";
 		},
 		get_commodity_buy_price:function(){
 			var com_name = cities[player.location].commodity.name;
@@ -616,6 +624,9 @@ var TheActualGame = (function(){
 			var gold = player.gold + com_gold;
 			
 			return "" + gold + " gold";
+		},
+		get_city_trading:function(city){
+			return cities[city].trading;
 		},
 		get_event:function(){
 			return event[year];
