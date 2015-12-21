@@ -1489,6 +1489,50 @@ VeniceCity.prototype = new InteractiveObject();
 mixin(VeniceCity,RenderableObject);
 VeniceCity.prototype.constructor = VeniceCity;
 
+function EndGameBackground(){
+	RenderableObject.call(this);
+	
+	this.name = "EndGameBackground";
+	
+	//Dimensions
+	this.width = 640;
+	this.height = 480;
+	
+	this.image_src.push({"key":"default","value":"backgrounds/FinalScreen.png"});
+	
+}
+EndGameBackground.prototype = new RenderableObject();
+EndGameBackground.prototype.constructor = EndGameBackground;
+
+function FinalGold(){
+	RenderableObject.call(this);
+	
+	this.name = "FinalGold";
+	this.color = "#000";
+	
+	this.text = {
+	"text":"500g",
+	"size":30,
+	"font":"sarif",
+	"text_align":"Left"};
+	
+	this.x = 330;
+	this.y = 293;
+	this.z = 500;
+	
+	this.width = 500;
+	this.height = 35;
+	
+	this.update = function(){
+		//Sets the Text to the city name
+		
+	}
+}
+FinalGold.prototype = new RenderableObject();
+FinalGold.prototype.constructor = FinalGold;
+
+
+
 //City Background Images
 function ChittagongBackground(){
 	RenderableObject.call(this);
