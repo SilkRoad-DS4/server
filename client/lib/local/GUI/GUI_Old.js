@@ -1121,12 +1121,12 @@ function EnterCity(){
 	
 	this.name = "EnterCity";
 
-	this.x = 285;
-	this.y = 60;
+	this.x = 330;
+	this.y = 75;
 	this.z = 500;
 	
-	this.width = 75;
-	this.height = 75;
+	this.width = 100;
+	this.height = 100;
 
 	//Images
 	this.image_src.push({"key":"default","value":"buttons/ParchmentButtonEnterCity.png"});
@@ -1157,11 +1157,11 @@ function EnterCityName(){
 	"font":"sarif",
 	"text_align":"center"};
 	
-	this.x = 325;
-	this.y = 95;
+	this.x = 382;
+	this.y = 120;
 	this.z = 500;
 	
-	this.width = 65;
+	this.width = 75;
 	this.height = 100;
 
 	this.update = function() {
